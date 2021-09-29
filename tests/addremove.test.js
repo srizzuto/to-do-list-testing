@@ -69,3 +69,33 @@ describe('the edit function', () => {
     expect((JSON.parse(localStorage.getItem('stored')))[0].description).toBe('new description');
   });
 });
+
+describe('The remove function', () => {
+  test('deletes the last task', () => {
+    const tasks = JSON.parse(localStorage.getItem('stored'));
+    remove(tasks, (JSON.parse(localStorage.getItem('stored')))[2]);
+    expect((JSON.parse(localStorage.getItem('stored'))).length).toBe(2);
+  });
+  test('updates the index of the last task after delete', () => {
+    const tasks = JSON.parse(localStorage.getItem('stored'));
+    remove(tasks, (JSON.parse(localStorage.getItem('stored')))[1]);
+    expect(((JSON.parse(localStorage.getItem('stored')))[1]).index).toBe(2);
+  });
+});
+
+describe('The Clear All function', () => {
+  test('clears all done tasks, expecting index to be updated (1)', () => {
+    const tasks = JSON.parse(localStorage.getItem('stored'));
+    tasks[0].completed = true;
+    tasks[1].completed = true;
+    removeChecked(tasks);
+    expect(tasks[2].index).toBe(1);
+  });
+  test('clear all done tasks, expect to have an array length of 1', () => {
+    const tasks = JSON.parse(localStorage.getItem('stored'));
+    tasks[0].completed = true;
+    tasks[1].completed = true;
+    removeChecked(tasks);
+    expect(JSON.parse(localStorage.getItem('stored')).length).toBe(1);
+  });
+});
