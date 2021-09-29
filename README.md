@@ -9,10 +9,7 @@ This project features ES6, Webpack.
 - HTML5, CSS3 and Javascript
 
 ## Live Demo
-
-[Live Demo link](https://srizzuto.github.io/To-do-list/)
-
-
+[Live demo version](https://srizzuto.github.io/To-do-list/)
 
 ### Prerequisites
 
@@ -27,7 +24,13 @@ To get a local copy in your machine:
 - Open your terminal and run `npm install` to install the node packages.
 - Run `npm run start` too run the project.
 
+## Testing
 
+- Open the terminal
+  - On Windows => `Win + R`
+  - On Linux => `ctrl + alt + T`
+  - On Mac => `Control + Option + Shift + T`
+- Run `npm run test`
 ## Author
 
 👤 **Sebastian Rizzuto**
